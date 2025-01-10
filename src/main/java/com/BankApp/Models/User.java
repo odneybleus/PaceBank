@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -20,6 +21,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userID;
 
+    @Column(unique = true)
     private String userName;
 
     @Column(unique = true, nullable = false)
@@ -31,6 +33,8 @@ public class User {
     private String userPhoneNumber;
     private LocalDate dateOfBirth;
     private LocalDate createdDate;
+
+    private List<Account> userAccounts;
 
 
 
